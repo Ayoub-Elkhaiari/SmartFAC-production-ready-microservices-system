@@ -1,0 +1,76 @@
+# ==============================
+# OS & System Files
+# ==============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Environment Variables
+# ==============================
+.env
+.env.*
+
+# ==============================
+# Python (All services)
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+
+venv/
+.venv/
+env/
+ENV/
+
+build/
+dist/
+*.egg-info/
+.eggs/
+
+.pytest_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+*.log
+
+# ==============================
+# Node / Frontend
+# ==============================
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+frontend/build/
+frontend/dist/
+frontend/.vite/
+
+*.tsbuildinfo
+
+# ==============================
+# Nginx
+# ==============================
+nginx/proxy_cache/
+
+# ==============================
+# IDEs
+# ==============================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ==============================
+# Misc
+# ==============================
+coverage/
+.cache/
+tmp/
+temp/

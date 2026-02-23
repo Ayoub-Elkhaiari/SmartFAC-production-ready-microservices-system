@@ -1,0 +1,196 @@
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - auth-service
+      - user-service-1
+      - user-service-2
+      - course-service
+      - meeting-service
+      - news-service
+      - notification-service
+      - chat-service
+      - frontend
+    volumes:
+      - proxy_cache:/var/cache/nginx
+      - uploads:/var/uploads
+
+  frontend:
+    build: ./frontend
+    expose:
+      - "80"
+
+  auth-service:
+    build: ./services/auth-service
+    expose:
+      - "8001"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://${DB_USER}:${DB_PASSWORD}@postgres-auth/auth_db
+      - REDIS_URL=${REDIS_URL}
+      - SECRET_KEY=${JWT_SECRET}
+      - JWT_ALGORITHM=${JWT_ALGORITHM}
+      - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
+      - REFRESH_TOKEN_EXPIRE_DAYS=${REFRESH_TOKEN_EXPIRE_DAYS}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - EMAIL_FROM=${EMAIL_FROM}
+      - NOTIFICATION_SERVICE_URL=http://notification-service:8006
+      - USER_SERVICE_URL=http://user-service-1:8002
+    depends_on:
+      - postgres-auth
+      - redis
+
+  user-service-1:
+    build: ./services/user-service
+    expose:
+      - "8002"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://${DB_USER}:${DB_PASSWORD}@postgres-users/users_db
+      - SECRET_KEY=${JWT_SECRET}
+      - JWT_ALGORITHM=${JWT_ALGORITHM}
+      - UPLOAD_DIR=${UPLOAD_DIR}
+    depends_on:
+      - postgres-users
+    volumes:
+      - uploads:/var/uploads
+
+  user-service-2:
+    build: ./services/user-service
+    expose:
+      - "8002"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://${DB_USER}:${DB_PASSWORD}@postgres-users/users_db
+      - SECRET_KEY=${JWT_SECRET}
+      - JWT_ALGORITHM=${JWT_ALGORITHM}
+      - UPLOAD_DIR=${UPLOAD_DIR}
+    depends_on:
+      - postgres-users
+    volumes:
+      - uploads:/var/uploads
+
+  course-service:
+    build: ./services/course-service
+    expose:
+      - "8003"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://${DB_USER}:${DB_PASSWORD}@postgres-courses/courses_db
+      - SECRET_KEY=${JWT_SECRET}
+      - JWT_ALGORITHM=${JWT_ALGORITHM}
+      - UPLOAD_DIR=${UPLOAD_DIR}
+      - NOTIFICATION_SERVICE_URL=http://notification-service:8006
+    depends_on:
+      - postgres-courses
+    volumes:
+      - uploads:/var/uploads
+
+  meeting-service:
+    build: ./services/meeting-service
+    expose:
+      - "8004"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://${DB_USER}:${DB_PASSWORD}@postgres-meetings/meetings_db
+      - SECRET_KEY=${JWT_SECRET}
+      - JWT_ALGORITHM=${JWT_ALGORITHM}
+      - NOTIFICATION_SERVICE_URL=http://notification-service:8006
+    depends_on:
+      - postgres-meetings
+
+  news-service:
+    build: ./services/news-service
+    expose:
+      - "8005"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://${DB_USER}:${DB_PASSWORD}@postgres-news/news_db
+      - SECRET_KEY=${JWT_SECRET}
+      - JWT_ALGORITHM=${JWT_ALGORITHM}
+      - UPLOAD_DIR=${UPLOAD_DIR}
+    depends_on:
+      - postgres-news
+    volumes:
+      - uploads:/var/uploads
+
+  notification-service:
+    build: ./services/notification-service
+    expose:
+      - "8006"
+    environment:
+      - REDIS_URL=${REDIS_URL}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - EMAIL_FROM=${EMAIL_FROM}
+
+  chat-service:
+    build: ./services/chat-service
+    expose:
+      - "8007"
+    environment:
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+      - OPENROUTER_MODEL=${OPENROUTER_MODEL:-google/gemma-3-27b-it:free}
+      - OPENROUTER_SITE_URL=${OPENROUTER_SITE_URL:-http://localhost}
+      - OPENROUTER_SITE_NAME=${OPENROUTER_SITE_NAME:-Smart Faculty}
+
+  postgres-auth:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: auth_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata-auth:/var/lib/postgresql/data
+
+  postgres-users:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: users_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata-users:/var/lib/postgresql/data
+
+  postgres-courses:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: courses_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata-courses:/var/lib/postgresql/data
+
+  postgres-meetings:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: meetings_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata-meetings:/var/lib/postgresql/data
+
+  postgres-news:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: news_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata-news:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redisdata:/data
+
+volumes:
+  proxy_cache:
+  uploads:
+  pgdata-auth:
+  pgdata-users:
+  pgdata-courses:
+  pgdata-meetings:
+  pgdata-news:
+  redisdata:

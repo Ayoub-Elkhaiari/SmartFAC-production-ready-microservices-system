@@ -1,0 +1,40 @@
+services:
+  auth-service:
+    volumes:
+      - ./services/auth-service:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8001 --reload
+
+  user-service-1:
+    volumes:
+      - ./services/user-service:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8002 --reload
+
+  user-service-2:
+    volumes:
+      - ./services/user-service:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8002 --reload
+
+  course-service:
+    volumes:
+      - ./services/course-service:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8003 --reload
+
+  meeting-service:
+    volumes:
+      - ./services/meeting-service:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8004 --reload
+
+  news-service:
+    volumes:
+      - ./services/news-service:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8005 --reload
+
+  notification-service:
+    volumes:
+      - ./services/notification-service:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8006 --reload
+
+  chat-service:
+    volumes:
+      - ./services/chat-service:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8007 --reload
