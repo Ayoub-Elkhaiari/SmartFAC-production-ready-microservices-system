@@ -1,4 +1,4 @@
-# 🎓 Smart Faculty (SmartFAC) Platform
+# 🎓 Smart Faculty Platform
 
 A production-ready microservices-based faculty management system built with:
 
@@ -180,7 +180,7 @@ For production deployment:
 
 ---
 
-## 📁 Project Structure 
+## 📁 Project Structure (Simplified)
 
 ```
 frontend/
@@ -196,6 +196,45 @@ nginx/
 docker-compose.yml
 docker-compose.override.yml
 ```
+
+---
+
+## 📸 Screenshots
+
+### 👨‍🎓 Student Account
+
+![Student Dashboard](https://github.com/user-attachments/assets/d052c072-e997-4120-be48-6c1f1d8759f4)
+![Student Courses](https://github.com/user-attachments/assets/b886ab5f-4152-4d3a-b27f-51f955131c79)
+![Student Schedule](https://github.com/user-attachments/assets/9c6b03a8-6555-47c1-9de5-ba70b0335e2e)
+![Student Meetings](https://github.com/user-attachments/assets/3d2ba63f-77cb-4310-9971-03f9c7edfee4)
+![Student News](https://github.com/user-attachments/assets/7923608e-46f2-4682-a0e2-74448e36d2ce)
+![Student AI Chat](https://github.com/user-attachments/assets/587a3ea9-5141-4c3c-a862-b6f83054cebb)
+![Student Profile](https://github.com/user-attachments/assets/10d3a19d-dca9-480e-9909-9f45a2047f1f)
+
+---
+
+### 👨‍🏫 Professor Account
+
+![Professor Dashboard](https://github.com/user-attachments/assets/c798afbf-aed2-41ac-b24f-c1d04cd8d46d)
+![Professor Courses](https://github.com/user-attachments/assets/12d7ea28-5c85-4157-8ec3-a0b6b8787a1d)
+![Professor Course Detail](https://github.com/user-attachments/assets/835d7104-9517-464d-a7ed-811fc49931a5)
+![Professor Meetings](https://github.com/user-attachments/assets/067bfd00-1967-48a4-bbb5-e3d4f4ebe2da)
+![Professor Schedule](https://github.com/user-attachments/assets/39cccbfe-cea4-42fd-a348-71fcd5fdbe44)
+![Professor News](https://github.com/user-attachments/assets/efb175e5-e790-4f32-a4bb-3e6025adffb6)
+![Professor AI Chat](https://github.com/user-attachments/assets/ea936dd1-6537-4e6d-ab7c-3fbeb2e1db17)
+
+---
+
+### 🛡️ Admin Account
+
+![Admin Overview](https://github.com/user-attachments/assets/2ba2b6cd-6b3f-482a-b915-dd2248ac8b1b)
+![Admin Users](https://github.com/user-attachments/assets/3cc8463e-7345-433a-9580-af4809e4501f)
+![Admin User Management](https://github.com/user-attachments/assets/54c09fd9-aa6b-4238-b93f-7262f4797fb0)
+![Admin Courses](https://github.com/user-attachments/assets/162e7357-0a9e-4b4c-9d3e-c79f37c16652)
+![Admin Meetings](https://github.com/user-attachments/assets/b326dd00-8cc3-4681-9a7f-7ba76e90c05f)
+![Admin News](https://github.com/user-attachments/assets/43919ba4-0c48-4d01-ad62-f1e0f104d84b)
+![Admin Notifications](https://github.com/user-attachments/assets/b5a40ed5-9e60-47f3-9c41-5b390f1ec692)
+![Admin Settings](https://github.com/user-attachments/assets/9aadbe53-4ca8-43e4-9731-c73b75b2b601)
 
 ---
 
