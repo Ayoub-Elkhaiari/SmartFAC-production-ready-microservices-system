@@ -201,6 +201,10 @@ docker-compose.override.yml
 
 ## 📸 Screenshots
 
+### The main entry: 
+![Admin User Management](https://github.com/user-attachments/assets/54c09fd9-aa6b-4238-b93f-7262f4797fb0)
+
+
 ### 👨‍🎓 Student Account
 
 ![Student Dashboard](https://github.com/user-attachments/assets/d052c072-e997-4120-be48-6c1f1d8759f4)
@@ -229,7 +233,6 @@ docker-compose.override.yml
 
 ![Admin Overview](https://github.com/user-attachments/assets/2ba2b6cd-6b3f-482a-b915-dd2248ac8b1b)
 ![Admin Users](https://github.com/user-attachments/assets/3cc8463e-7345-433a-9580-af4809e4501f)
-![Admin User Management](https://github.com/user-attachments/assets/54c09fd9-aa6b-4238-b93f-7262f4797fb0)
 ![Admin Courses](https://github.com/user-attachments/assets/162e7357-0a9e-4b4c-9d3e-c79f37c16652)
 ![Admin Meetings](https://github.com/user-attachments/assets/b326dd00-8cc3-4681-9a7f-7ba76e90c05f)
 ![Admin News](https://github.com/user-attachments/assets/43919ba4-0c48-4d01-ad62-f1e0f104d84b)
