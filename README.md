@@ -180,7 +180,7 @@ For production deployment:
 
 ---
 
-## 📁 Project Structure (Simplified)
+## 📁 Project Structure 
 
 ```
 frontend/
