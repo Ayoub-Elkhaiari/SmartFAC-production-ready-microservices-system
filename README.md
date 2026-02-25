@@ -247,6 +247,5 @@ docker-compose.override.yml
 - [Docker Compose](https://docs.docker.com/compose/)
 
 > No local Python or Node installation required.
-> 
-Invoke-RestMethod -Method Post -Uri http://localhost/api/auth/register -ContentType "application/json" -Body '{"email":"your email","full_name":"Student One","role":"student/professor/admin","password":"choose a password"}'
+> Invoke-RestMethod -Method Post -Uri http://localhost/api/auth/register -ContentType "application/json" -Body '{"email":"your email","full_name":"Student One","role":"student/professor/admin","password":"choose a password"}'
 
