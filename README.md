@@ -1,5 +1,18 @@
 # 🎓 Smart Faculty Platform
 
+[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-Microservices-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-Frontend-61DAFB?logo=react&logoColor=black)](https://react.dev/)
+[![Nginx](https://img.shields.io/badge/Nginx-API%20Gateway-009639?logo=nginx&logoColor=white)](https://nginx.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Per%20Service%20DB-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Redis](https://img.shields.io/badge/Redis-Caching%20%26%20Notifications-DC382D?logo=redis&logoColor=white)](https://redis.io/)
+[![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+[![JWT](https://img.shields.io/badge/JWT-Authentication-000000?logo=jsonwebtokens&logoColor=white)](https://jwt.io/)
+[![OpenRouter](https://img.shields.io/badge/OpenRouter-AI%20Assistant-FF6B6B?logoColor=white)](https://openrouter.ai/)
+[![Load Balancing](https://img.shields.io/badge/Nginx-Load%20Balancing-009639?logo=nginx&logoColor=white)](https://nginx.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Status](https://img.shields.io/badge/Status-Complete-brightgreen)]()
+
 A production-ready microservices-based faculty management system built with:
 
 - **Frontend:** React
